@@ -1,11 +1,11 @@
 import { useRef, useState, sueEffect, useEffect, useContext } from 'react'
-import AuthContext from './context/AuthProvider';
+import {AuthContext} from './context/AuthProvider';
 
 import axios from './api/axios';
 const LOGIN_URL = '/auth';
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -13,7 +13,7 @@ const Login = () => {
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
-
+ console.log(auth);
   useEffect(() => {
     userRef.current.focus();
   }, [])
